@@ -1,0 +1,108 @@
+@import "../../scss/variables.scss";
+
+.login-page-container {
+  height: 100vh;
+  position: relative;
+  font-family: $main-font;
+
+  .right-container {
+    display: none;
+  }
+
+  .left-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 85%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    gap: 20px;
+
+    .form-title {
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+
+    .form-description {
+      color: rgba(#000000, 0.5);
+      font-size: 0.9rem;
+      line-height: 1.5rem;
+    }
+
+    .login-form {
+      margin-top: 30px;
+      display: grid;
+      gap: 35px;
+
+      .input-container {
+        border-bottom: 2px solid #000000;
+        height: 45px;
+        position: relative;
+
+        input {
+          width: 100%;
+          display: block;
+          height: 100%;
+          border: none;
+          background-color: transparent;
+          outline: none;
+          position: relative;
+          font-family: $main-font;
+          font-size: 1rem;
+          z-index: 1;
+
+          &:focus ~ .label-container span,
+          &:valid ~ .label-container span {
+            transform: translateY(-35px);
+            font-size: 0.8rem;
+          }
+
+          &:focus ~ .label-container::before {
+            width: 100%;
+          }
+        }
+
+        .label-container {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+
+          &::before {
+            content: "";
+            background: green;
+            width: 0%;
+            transition: width 0.3s ease;
+            height: 2px;
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+
+          span {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease, font-size 0.3s ease;
+          }
+        }
+      }
+
+      .btn-login-user {
+        background: #3742fa;
+        display: block;
+        height: 45px;
+        border-radius: 10px;
+        color: white;
+        cursor: pointer;
+        font-family: $main-font;
+        font-size: 1rem;
+        outline: none;
+        border: none;
+      }
+    }
+  }
+}
